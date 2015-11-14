@@ -1,0 +1,11 @@
+/var/www/fva/fva/logs/**/*.log {
+    weekly
+    missingok
+    rotate 10
+    compress
+    delaycompress
+    notifempty
+    create 640 www-data www-data
+    sharedscripts
+    su www-data www-data
+}

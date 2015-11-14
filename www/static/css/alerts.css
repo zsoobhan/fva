@@ -1,0 +1,36 @@
+/* MESSAGES */
+
+ul.messagelist {
+    color:#FFFFFF;
+    padding: 3pt 0 0 0;
+    margin: 0;
+}
+
+ul.messagelist li {
+    display: inline-block;
+    position:relative;
+    vertical-align: middle;
+    padding: 2px 2px 10px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 0 0px;
+}
+ul.messagelist li.warning {
+}
+
+ul.messagelist li.success {
+}
+
+ul.messagelist li.error {
+}
+
+ul.messagelist li.success i.icon {
+    color: #FFC000;
+}
+
+ul.messagelist li.warning i.icon {
+}
+
+ul.messagelist li.error i.icon {
+    color: red;
+}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Ziyad Soobhan" %}{% endblock %}
+{% block description %}{% trans "Personal Website | Ziyad Soobhan" %}{% endblock %}
+{% block keywords %}{% trans "Homepage, Developer, Climber, Astrophysicist" %}{% endblock %}
+{% block body_class %}wrapper{% endblock %}
+
+
+{% block content %}
+<div class="featured-wrapper">
+		<div class="extra2 ">
+            <div class="small-spacer"></div>
+            <div class="ebox">
+                <div class="title">
+                    <h2>Ziyad Soobhan</h2>
+                    <span class="byline">Developer, Climber, Astrophysicist</span>
+                </div>
+                <p>
+                    I am a web-developer with an MSci in Astrophysics as well as an avid rock-climber.
+                    My work involves the implementation and maintenance of solutions primarily engineered in Python.
+                    which has lead to me being exposed to various mechanisms of content delivery.
+                    I work with various web technologies such as WSGI, Nginx, Apache, VirtualEnv and am particularly
+                    interested in using frameworks such Django as well as the rest of the stack. When not at work,
+                    I most probably can be found at my local climbing wall where I train three to four times a week.
+                <p>
+            </div>
+
+            <div class="spacer"></div>
+
+            <div class="ebox">
+                <div class="hexagon">
+                      <i class="icon fa-wrench"></i>
+                </div>
+                <div class="title">
+                    <h2>Infrastructure</h2>
+                    <span class="byline">nginx, supervisor, uWSGI, virtualenv, django</span>
+                </div>
+                <p>
+                   The stack is  currently set up on a
+                   <a href="https://www.digitalocean.com/?refcode=3b0020c434de">DigitalOcean</a>
+                   droplet namespaced with a hierarchical folder structure, symlinks and a virtualenv.
+                   The codebase is deployed via a fabric script which provisions the server,
+                   migrates the database, updates the configuration files and restarts the necessary services.
+                   The web application itself is managed with supervisor and uWSGI which creates
+                   a websocket accessed and served using Nginx while all of the staticfiles are pushed and served
+                   via AWS S3.  For more information with regards to the status of the site, check my twitter
+                   feed or github repository, both whose links may be found at the bottom of the page.
+                </p>
+            </div>
+            <div class="spacer"></div>
+
+            <div class="triangle-grey"></div>
+        </div>
+</div>
+
+{% endblock %}
+

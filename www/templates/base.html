@@ -1,0 +1,57 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="{% block description %}{% endblock %}"/>
+        <meta name="keywords" content="{% block keywords %}{% endblock %}"/>
+
+        {% block css %}
+            <!-- Remove the no-js class as soon as possible: http://bit.ly/1duQn43 -->
+            <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+
+            <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+            <link href="{% static "css/styles.css" %}" rel="stylesheet" type="text/css" media="all" />
+        {% endblock css %}
+
+    </head>
+
+    <body class="{% block body_class %}wrapper{% endblock body_class %}">
+    {% block body %}
+        {% block messages %}
+            {% include 'partials/messages.html' %}
+        {% endblock messages %}
+
+        {% block header %}
+            {% include 'partials/header.html' %}
+        {% endblock header %}
+
+        {% block menu %}
+            {% include 'partials/menu.html' %}
+        {% endblock menu %}
+
+        {% block content %}{% endblock content %}
+
+        {% block social %}
+            {% include 'partials/social.html' %}
+        {% endblock social %}
+
+
+        {% block footer %}
+            {% include 'partials/footer.html' %}
+        {% endblock footer %}
+
+        {% block js %}
+            <script src="{% static "js/jquery.min.js" %}"></script>
+            <script src="{% static "js/watchmen.js" %}"></script>
+            {% include 'partials/google_analytics.html' %}
+        {% endblock js %}
+        {% block extrascripts %}{% endblock extrascripts %}
+
+    {% endblock body %}
+    </body>
+</html>

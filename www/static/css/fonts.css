@@ -1,0 +1,56 @@
+@charset 'UTF-8';
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('/static/fonts/fontawesome-webfont.eot?v=4.3.0');
+  src: url('/static/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0') format('embedded-opentype'),
+       url('/static/fonts/fontawesome-webfont.woff2?v=4.3.0') format('woff2'), 
+       url('/static/fonts/fontawesome-webfont.woff?v=4.3.0') format('woff'), 
+       url('/static/fonts/fontawesome-webfont.ttf?v=4.3.0') format('truetype'), 
+       url('/static/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/*********************************************************************************/
+/* Icons                                                                         */
+/*********************************************************************************/
+
+	/*
+		Powered by:
+		
+		Font Awesome (http://fortawesome.github.com/Font-Awesome/)
+		Font Awesome More (http://gregoryloucas.github.com/Font-Awesome-More/)
+	*/
+
+.icon
+{
+    text-decoration: none;
+}
+
+.icon:before
+{
+    font-size: 1.35em;
+    text-decoration: none;
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    -webkit-text-rendering: optimizeLegibility;
+    -moz-text-rendering: optimizeLegibility;
+    -ms-text-rendering: optimizeLegibility;
+    -o-text-rendering: optimizeLegibility;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -ms-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    -webkit-font-feature-settings: "liga" 1, "dlig" 1;
+    -moz-font-feature-settings: "liga=1, dlig=1";
+    -ms-font-feature-settings: "liga" 1, "dlig" 1;
+    -o-font-feature-settings: "liga" 1, "dlig" 1;
+    font-feature-settings: "liga" 1, "dlig" 1;
+}
+
+
