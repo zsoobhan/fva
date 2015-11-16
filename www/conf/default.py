@@ -111,7 +111,7 @@ INSTALLED_APPS = [
 
     # Project Apps go here
     'content',  # FIXME
-    'blog',  # FIXME
+    'media',
 ]
 
 # Use cached sessions by default

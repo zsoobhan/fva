@@ -2,8 +2,8 @@ from django.contrib import admin
 from . import models
 
 
-@admin.register(models.BlogEntry)
-class BlogAdmin(admin.ModelAdmin):
+@admin.register(models.YoutubeVideo)
+class YoutubeAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     search_fields = ['slug', 'title', 'date_created', 'date_published']
     list_filter = ['status']
