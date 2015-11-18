@@ -2,10 +2,6 @@
 /* social Style                                                                  */
 /*********************************************************************************/
 
-.social{
-
-}
-
 
 .social-wrapper
 {
@@ -46,7 +42,7 @@
     display: block;
     float: left;
     text-align: center;
-    width:33.3%;
+    width:25%;
     margin: 1em 0;
 	font-size: 2em;
     box-sizing: border-box;

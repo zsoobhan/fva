@@ -19,7 +19,7 @@
                     <div class="title">
                         <a href="{{ object.get_absolute_url }}"><h2>{{ object.title }}</h2></a>
                         <span class="byline">{% if object.date %}{{ object.date}}{% endif %}</span>
-                        <p class="tag">{% for tag in object.tags.all %}{{ tag }} {% endfor %}</p>
+                        <p class="tag">{% for tag in object.tags.all %}<a href="{{ tag.get_absolute_url}}">{{ tag }}</a> {% endfor %}</p>
                     </div>
                     <p>{{ object.subtitle }}</p>
                 </div>

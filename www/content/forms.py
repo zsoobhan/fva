@@ -15,6 +15,8 @@ class ContactForm(forms.ModelForm):
         help_text="Answer the simple sum to prove you're human.",
         label="Answer")
 
+    request_meta = forms.CharField(required=False, widget=forms.HiddenInput)
+
     def clean_robots_check_this(self):
         # Only robots are likely to see this field.
         # You shall not pass!
@@ -33,9 +35,13 @@ class ContactForm(forms.ModelForm):
 
         return answer
 
+    def clean_request_meta(self):
+        return str(self.request_meta)
+
     def __init__(self, *args, **kwargs):
         # Add answer from session to form instance
         self.calculated_answer = kwargs.pop('answer', None)
+        self.request_meta = kwargs.pop('request_meta', None)
         super(ContactForm, self).__init__(*args, **kwargs)
 
     class Meta:

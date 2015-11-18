@@ -3,6 +3,8 @@ from django.utils import timezone
 from django.core.urlresolvers import reverse
 from django.db import models
 
+from . import FA_CHOICES
+
 
 PUBLISHED = 'PUBLISHED'
 DRAFT = 'DRAFT'
@@ -19,6 +21,30 @@ class Tag(models.Model):
 
     def __unicode__(self):
         return u'{slug}'.format(slug=self.slug)
+
+    @property
+    def is_active(self):
+        'Returns a boolean if tag contains active content'
+        return any(self.active_content())
+
+    def get_absolute_url(self):
+        return reverse(
+            'media:tag-detail-view', kwargs={'slug': self.slug}
+        )
+
+    def active_content(self):
+        return [
+            entry for entry in self.media_entries.all()
+            if entry.is_active
+        ]
+
+    @property
+    def get_ga_label(self):
+        return 'tag-{slug}-{id}'.format(slug=self.slug[:10], id=self.id)
+
+    class Meta:
+        get_latest_by = 'date_created'
+        ordering = ['-date_created']
 
 
 class AbstractMediaEntry(models.Model):
@@ -42,7 +68,9 @@ class AbstractMediaEntry(models.Model):
     icon = models.CharField(
         max_length=64,
         help_text='The font awesome icon to be displayed',
-        default='fa-align-right')
+        default='fa-align-right',
+        choices=zip(FA_CHOICES, FA_CHOICES)
+    )
 
     class Meta:
         abstract = True
@@ -61,9 +89,13 @@ class AbstractMediaEntry(models.Model):
         conditions.append(published_now)
         return all(conditions)
 
+    def media_prefix(self):
+        return 'media'
+
     @property
     def get_ga_label(self):
-        return '{slug}-{id}'.format(slug=self.slug[:10], id=self.id)
+        return '{pre}-{slug}-{id}'.format(
+            pre=self.media_prefix(), slug=self.slug[:10], id=self.id)
 
 
 class YoutubeVideo(AbstractMediaEntry):
@@ -75,12 +107,9 @@ class YoutubeVideo(AbstractMediaEntry):
             'media:youtube-detail-view', kwargs={'slug': self.slug}
         )
 
-    def get_youtube_url(self):
-        # FIXME
-        'Returns a url constructed from the id with the correct '
-        'ga-label and data target'
-        return ''
-
     class Meta:
         get_latest_by = 'date_published'
         ordering = ['-date_published']
+
+    def media_prefix(self):
+        return 'vid'

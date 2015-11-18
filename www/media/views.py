@@ -32,11 +32,21 @@ class BaseEntryDetailView(generic.DetailView):
 
 class YoutubeVideoListView(BaseEntryListView):
     model = models.YoutubeVideo
-    template_name = 'media/youtubelist.html'
+    template_name = 'media/youtube_list.html'
     queryset = models.YoutubeVideo.objects.filter(status=models.PUBLISHED)
     queryset = queryset.prefetch_related('tags')
 
 
-class YoutubeEntryDetailView(generic.DetailView):
-    template_name = 'media/youtubedetail.html'
+class YoutubeEntryDetailView(BaseEntryDetailView):
     model = models.YoutubeVideo
+    template_name = 'media/youtube_detail.html'
+
+
+class TagListView(BaseEntryListView):
+    model = models.Tag
+    template_name = 'media/tag_list.html'
+
+
+class TagDetailView(BaseEntryDetailView):
+    model = models.Tag
+    template_name = 'media/tag_detail.html'

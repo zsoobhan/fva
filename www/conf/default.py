@@ -72,8 +72,10 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'django.core.context_processors.static',
     'django.contrib.messages.context_processors.messages',
     # custom context processors
-    'content.context_processors.add_ga_tracking_code',
-    'content.context_processors.add_robots_question'
+    'content.context_processors.add_context_settings',
+    'content.context_processors.add_robots_question',
+    'content.context_processors.add_this_year',
+
 ]
 
 MIDDLEWARE_CLASSES = (
@@ -221,3 +223,6 @@ CKEDITOR_IMAGE_BACKEND = 'pillow'
 # Debug toolbar settings
 DEBUG_TOOLBAR_PATCH_SETTINGS = False
 INTERNAL_IPS = ('127.0.0.1',)
+
+GA_TRACKING_CODE = 'GA_TRACKING_CODE'
+FACEBOOK_APP_ID = 'FACEBOOK_APP_ID'

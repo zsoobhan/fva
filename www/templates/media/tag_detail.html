@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static from staticfiles %}
+
+{% block title %}{% trans "Farah Visual Arts | YouTube Video" %}  {{ object.title }}{% endblock %}
+{% block description %}{{ object.meta_description|safe }}{% endblock %}
+{% block keywords %}{% trans "YouTube Video" %}{% endblock %}
+{% block body_class %}wrapper{% endblock %}
+
+{% block content %}
+
+
+<div class="featured-wrapper">
+    <div class="extra2">
+        <div class="small-spacer"></div>
+        <div class="ebox blog">
+
+            <div class="title{% if not object.is_active %} preview{% endif %}">
+                <h2>{{ object.title }}</h2>
+                <span class="byline">{{ object.subtitle }}</span>
+            </div>
+            <div class="blog-content">{{ object.blurb|safe }}</div>
+        </div>
+
+        <div class="small-spacer"></div>
+        <div class="title"><h1>This tag contains the following media:</h1></div>
+
+        {% for content in tag.active_content %}
+        <div class="ebox blog">
+            <a href="{{ content.get_absolute_url }}">{{ content.title }}</a>
+        </div>
+
+        {% endfor %}
+        <div class="triangle-grey"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extrascripts %}
+    <script src="{% static "js/share_icons.js" %}"></script>
+{% endblock extrascripts %}

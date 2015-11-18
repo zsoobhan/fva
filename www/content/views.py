@@ -23,6 +23,7 @@ class ContactFormView(generic.FormView):
         # Adds answer from session to the form kwargs for human verification
         kwargs = super(ContactFormView, self).get_form_kwargs()
         kwargs['answer'] = self.request.session['q_and_a']['answer']
+        kwargs['request_meta'] = self.request.META
         return kwargs
 
 

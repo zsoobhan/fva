@@ -7,10 +7,10 @@ from django.test import TestCase
 from . import models
 
 
-class YoutubeEntryTests(TestCase):
+class YoutubeVideoTests(TestCase):
 
     def setUp(self):
-        self.youtube_entry = YoutubeEntryFactory.create()
+        self.youtube_entry = YoutubeVideoFactory.create()
 
     def test_youtube_is_active_published_past(self):
         self.youtube_entry.date_published = past()
@@ -40,7 +40,7 @@ class YoutubeEntryTests(TestCase):
 
 
 # Test Utils
-class YoutubeEntryFactory(factory.django.DjangoModelFactory):
+class YoutubeVideoFactory(factory.django.DjangoModelFactory):
     status = models.PUBLISHED
     title = 'This is a test title'
     subtitle = 'This is a test subtitle'
@@ -48,7 +48,7 @@ class YoutubeEntryFactory(factory.django.DjangoModelFactory):
     slug = factory.Sequence(lambda n: "slug-%03d" % n)
 
     class Meta:
-        model = models.youtubeEntry
+        model = models.YoutubeVideo
 
 
 def past():

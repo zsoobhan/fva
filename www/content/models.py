@@ -19,6 +19,8 @@ class Communication(models.Model):
         blank=True,
         help_text='Your phone number goes here.')
     date_created = models.DateTimeField(auto_now_add=True)
+    request_meta = models.CharField(
+        max_length=10000, blank=True)
 
     def __unicode__(self):
         return u'Name:%s -- Date:%s' % (self.name, self.date_created.date())

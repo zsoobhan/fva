@@ -14,20 +14,24 @@
     <div class="extra2">
         <div class="small-spacer"></div>
         <div class="ebox blog">
-            <div class="hexagon"><span class="icon {{ object.icon }}"></span> </div>
+
             <div class="title{% if not object.is_active %} preview{% endif %}">
                 <h2>{{ object.title }}</h2>
+            </div>
+
+            {% include 'partials/youtube_embed.html' with youtube_id=object.youtube_id %}
+
+            <div class="tiny-spacer"></div>
+            <div class="title">
                 <span class="byline">{{ object.subtitle }}</span>
                 <div class="date">{% if object.date %}{{ object.date}}{% endif %}</div>
-                <div class="tag">{% for tag in object.tags.all %}{{ tag }} {% endfor %}</div>
+                <div class="tag">{% for tag in object.tags.all %}<a href="{{ tag.get_absolute_url}}">{{ tag }}</a>{% endfor %}</div>
             </div>
             <div class="blog-content">{{ object.content|safe }}</div>
         </div>
-        <div class="tiny-spacer"></div>
-
         <a id="fb-share-link-js" data-target="{{ object.get_ga_label }}" href="#"><i class="fa fa-facebook-square"></i></a>
-
-        <div class="spacer"></div>
+        <div class="small-spacer"></div>
+        <div class="hexagon"><span class="icon {{ object.icon }}"></span> </div>
         <div class="triangle-grey"></div>
     </div>
 </div>

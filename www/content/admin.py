@@ -10,6 +10,7 @@ class AuthorAdmin(admin.ModelAdmin):
         'email',
         'date_created',
         'phone_number']
+    readonly_fields = ['request_meta']
 
 
 @admin.register(models.Upload)
