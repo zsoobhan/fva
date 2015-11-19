@@ -10,13 +10,13 @@ class YoutubeAdmin(admin.ModelAdmin):
     list_display = ['slug', 'status', 'date', 'date_published', 'is_active']
     readonly_fields = ['date_created']
     fieldsets = (
-        ('Internal', {
+        ('Visibility', {
             'classes': ('wide',),
-            'fields': ('date_created', 'slug', 'status', 'date_published')
+            'fields': ('date_created', 'status', 'date_published')
             }
          ),
         ('Meta', {'fields': ('date', 'meta_description', 'icon', 'tags')},),
-        ('Content', {'fields': ('youtube_id', 'title',
+        ('Content', {'fields': ('youtube_id', 'title', 'slug',
                                 'subtitle', 'content')},)
     )
 

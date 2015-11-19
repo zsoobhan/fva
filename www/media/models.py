@@ -78,7 +78,7 @@ class AbstractMediaEntry(models.Model):
         ordering = ['-date_published']
 
     def __unicode__(self):
-        return u'slug'.format(slug=self.slug)
+        return u'{slug}'.format(slug=self.slug)
 
     @property
     def is_active(self):
