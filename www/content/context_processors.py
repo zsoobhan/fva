@@ -1,4 +1,3 @@
-import datetime
 from django.conf import settings
 
 CONTEXT_SETTINGS = [
@@ -20,7 +19,3 @@ def add_robots_question(request):
     if q_and_a:
         ctx.update({'QUESTION': q_and_a['question']})
     return ctx
-
-
-def add_this_year(request):
-    return {'this_year': datetime.date.today().year}

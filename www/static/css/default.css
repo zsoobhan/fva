@@ -334,7 +334,7 @@ ul.style3 .icon
 
 	.logo
 	{
-		padding: 5em 0em;
+		padding: 0em 0em;
 		text-align: center;
 	}
 	
@@ -372,6 +372,7 @@ ul.style3 .icon
 	{
 		font-size: 4em;
 		color: rgba(255,255,255,1);
+        padding-bottom:10px;
 	}
 	
 	
@@ -1129,39 +1130,47 @@ ul.contact li a.icon-rss:before
 }
 
 
+
 .small-hexagon {
-	margin: 0 auto 1em auto;
-	width: 60px;
-	height: 40px;
-	line-height: 40px;
-	background: #FFC000;
-	position: absolute;
-	text-align: center;
-	color: #FFF;
-	font-size: 1em;
+    margin: 0 auto 1em auto;
+    width: 60px;
+    height: 40px;
+    line-height: 40px;
+    background: #FFC000;
+    position: absolute;
+    text-align: center;
+    color: #FFF;
+    font-size: 1em;
     position: absolute;
     top: 15px;
     left: 0;
 }
+
 .small-hexagon:before {
-	content: "";
-	position: absolute;
-	top: -15px;
-	left: 0;
-	width: 0;
-	height: 0;
-	border-left: 30px solid transparent;
-	border-right: 30px solid transparent;
-	border-bottom: 15px solid #FFC000;
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 15px solid #FFC000;
 }
+
 .small-hexagon:after {
-	content: "";
-	position: absolute;
-	bottom: -15px;
-	left: 0;
-	width: 0;
-	height: 0;
-	border-left: 30px solid transparent;
-	border-right: 30px solid transparent;
-	border-top: 15px solid #FFC000;
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-top: 15px solid #FFC000;
+}
+
+.tag-hex.small-hexagon
+{
+    top:0px;
 }

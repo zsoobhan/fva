@@ -74,8 +74,6 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     # custom context processors
     'content.context_processors.add_context_settings',
     'content.context_processors.add_robots_question',
-    'content.context_processors.add_this_year',
-
 ]
 
 MIDDLEWARE_CLASSES = (

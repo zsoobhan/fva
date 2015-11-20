@@ -29,3 +29,7 @@ class ContactFormView(generic.FormView):
 
 class HomeView(generic.TemplateView):
     template_name = 'content/home.html'
+
+
+class BiographyView(generic.TemplateView):
+    template_name = 'content/biography.html'
