@@ -29,7 +29,7 @@
         {% for content in tag.active_content %}
 
             <div class="list title">
-                <div class="tag-hex small-hexagon"><span class="icon {{ content.icon }}"></span> </div>
+                <div class="tag-hex small-hexagon"><span class="icon {{ content.default_icon }}"></span> </div>
                 <h1><a href="{{ content.get_absolute_url }}">{{ content.title }}</a></h1>
                 <div class="date">{{ content.date}}</div>
             </div>

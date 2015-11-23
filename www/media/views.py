@@ -37,9 +37,21 @@ class YoutubeVideoListView(BaseEntryListView):
     queryset = queryset.prefetch_related('tags')
 
 
+class FlickrAlbumListView(BaseEntryListView):
+    model = models.FlickrAlbum
+    template_name = 'media/flickr_list.html'
+    queryset = models.FlickrAlbum.objects.filter(status=models.PUBLISHED)
+    queryset = queryset.prefetch_related('tags')
+
+
 class YoutubeEntryDetailView(BaseEntryDetailView):
     model = models.YoutubeVideo
     template_name = 'media/youtube_detail.html'
+
+
+class FlickAlbumDetailView(BaseEntryDetailView):
+    model = models.FlickrAlbum
+    template_name = 'media/flickr_detail.html'
 
 
 class TagListView(BaseEntryListView):

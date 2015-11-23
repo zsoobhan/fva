@@ -19,12 +19,12 @@
                 <h2>{{ object.title }}</h2>
             </div>
 
-            {% include 'partials/youtube_embed.html' with youtube_id=object.youtube_id %}
+            {% include 'partials/flickr_embed.html' with flickr_album_id=object.flickr_album_id %}
 
             <div class="title">
                 <span class="byline">{{ object.subtitle }}</span>
                 <div class="date">{% if object.date %}{{ object.date}}{% endif %}</div>
-                <div class="tag">{% for tag in object.tags.all %}<a href="{{ tag.get_absolute_url}}">{{ tag }}</a> {% endfor %}</div>
+                <div class="tag">{% for tag in object.tags.all %}<a href="{{ tag.get_absolute_url}}">{{ tag }}</a>{% endfor %}</div>
             </div>
             <div class="blog-content">{{ object.content|safe }}</div>
         </div>

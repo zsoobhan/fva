@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Farah Visual Arts Videos | Media" %}{% endblock %}
+{% block description %}{% trans "Galleries relating to Farah Visual Arts" %}{% endblock %}
+{% block keywords %}{% trans "Video, Art, Galleries" %}{% endblock %}
+{% block body_class %}wrapper{% endblock %}
+
+{% block content %}
+<div class="featured-wrapper">
+    <div class="extra2">
+
+        <div class="small-spacer"></div>
+        <div class="hexagon">
+            <i class="icon fa-flickr"></i>
+        </div>
+
+        {% if active_objects %}
+            {% for object in active_objects %}
+                    <div class="list title">
+                    <div class="small-hexagon"><span class="icon {{ object.icon }}"></span> </div>
+                    <a href="{{ object.get_absolute_url }}"><h2>{{ object.title }}</h2></a>
+                    <span class="byline">{% if object.date %}{{ object.date}}{% endif %}</span>
+                    <p class="tag">{% for tag in object.tags.all %}<a href="{{ tag.get_absolute_url}}">{{ tag }}</a> {% endfor %}</p>
+                    <p>{{ object.subtitle }}</p>
+                </div>
+            {% endfor %}
+            {% if page_obj.has_next or page_obj.has_previous %}
+                <div class="pagination">
+                    <span class="step-links">
+                        {% if page_obj.has_previous %}
+                            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                        {% endif %}
+
+                        <span class="current">
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                        </span>
+
+                        {% if page_obj.has_next %}
+                            <a href="?page={{ page_obj.next_page_number }}">next</a>
+                        {% endif %}
+                    </span>
+                </div>
+            {% endif %}
+
+
+
+        {% else %}
+            <div class="ebox">
+                <div class="title">
+                    <h2>Videos</h2>
+                    <span class="byline">Warning, here be dragons</span>
+                </div>
+                <p> Videos coming soon...</p>
+            </div>
+            <div class="spacer"></div>
+        {% endif %}
+
+
+
+
+        <div class="triangle-grey"></div>
+    </div>
+</div>
+
+{% endblock %}
+

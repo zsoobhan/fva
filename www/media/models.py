@@ -12,6 +12,15 @@ STATUS_CHOICES = [
     (PUBLISHED, 'Published'),
     (DRAFT, 'Draft')]
 
+RELATED_NAMES = ['youtube_entries', 'flickr_entries']
+
+
+def filter_for_active_entries(obj, related_name):
+    return [
+        entry for entry in getattr(obj, related_name).all()
+        if entry.is_active
+    ]
+
 
 class Tag(models.Model):
     title = models.CharField(max_length=4096)
@@ -33,10 +42,10 @@ class Tag(models.Model):
         )
 
     def active_content(self):
-        return [
-            entry for entry in self.media_entries.all()
-            if entry.is_active
-        ]
+        active_content = []
+        for related_name in RELATED_NAMES:
+            active_content += filter_for_active_entries(self, related_name)
+        return active_content
 
     @property
     def get_ga_label(self):
@@ -63,13 +72,12 @@ class AbstractMediaEntry(models.Model):
     slug = models.SlugField(max_length=4096, unique=True)
     subtitle = models.CharField(blank=True, max_length=4096)
     content = RichTextField(blank=True)
-    tags = models.ManyToManyField(Tag, related_name='media_entries')
     meta_description = models.TextField(blank=True, max_length=1024)
     icon = models.CharField(
         max_length=64,
         help_text='The font awesome icon to be displayed',
         default='fa-align-right',
-        choices=zip(FA_CHOICES, FA_CHOICES)
+        choices=FA_CHOICES
     )
 
     class Meta:
@@ -92,6 +100,9 @@ class AbstractMediaEntry(models.Model):
     def media_prefix(self):
         return 'media'
 
+    def default_icon(self):
+        return 'fa-{prefix}'.format(prefix=self.media_prefix())
+
     @property
     def get_ga_label(self):
         return '{pre}-{slug}-{id}'.format(
@@ -101,6 +112,7 @@ class AbstractMediaEntry(models.Model):
 class YoutubeVideo(AbstractMediaEntry):
     youtube_id = models.CharField(
         max_length=16, help_text='The YouTube ID of the video.')
+    tags = models.ManyToManyField(Tag, related_name='youtube_entries')
 
     def get_absolute_url(self):
         return reverse(
@@ -110,6 +122,26 @@ class YoutubeVideo(AbstractMediaEntry):
     class Meta:
         get_latest_by = 'date_published'
         ordering = ['-date_published']
+        verbose_name = 'Youtube Video'
+        verbose_name_plural = 'Youtube Videos'
 
     def media_prefix(self):
-        return 'vid'
+        return 'youtube'
+
+
+class FlickrAlbum(AbstractMediaEntry):
+    flickr_album_id = models.CharField(
+        max_length=32, help_text='The ID of the album from flickr.')
+    tags = models.ManyToManyField(Tag, related_name='flickr_entries')
+
+    def get_absolute_url(self):
+        return reverse('media:flickr-detail-view', kwargs={'slug': self.slug})
+
+    class Meta:
+        get_latest_by = 'date_published'
+        ordering = ['-date_published']
+        verbose_name = 'Flickr Album'
+        verbose_name_plural = 'Flickr Albums'
+
+    def media_prefix(self):
+        return 'flickr'
