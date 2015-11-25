@@ -15,13 +15,6 @@ STATUS_CHOICES = [
 RELATED_NAMES = ['youtube_entries', 'flickr_entries']
 
 
-def filter_for_active_entries(obj, related_name):
-    return [
-        entry for entry in getattr(obj, related_name).all()
-        if entry.is_active
-    ]
-
-
 class Tag(models.Model):
     title = models.CharField(max_length=4096)
     slug = models.SlugField(max_length=4096, unique=True)
@@ -30,6 +23,12 @@ class Tag(models.Model):
 
     def __unicode__(self):
         return u'{slug}'.format(slug=self.slug)
+
+    def _filter_for_active_entries(self, related_name):
+        return [
+            entry for entry in getattr(self, related_name).all()
+            if entry.is_active
+        ]
 
     @property
     def is_active(self):
@@ -44,7 +43,7 @@ class Tag(models.Model):
     def active_content(self):
         active_content = []
         for related_name in RELATED_NAMES:
-            active_content += filter_for_active_entries(self, related_name)
+            active_content += self._filter_for_active_entries(related_name)
         return active_content
 
     @property
