@@ -20,6 +20,7 @@ www/public/media
 #confs which contain sensitive information
 www/conf/local.py
 www/conf/prod.py
+www/deploy/nginx/*.basic_auth
 
 #logs
 logs/*.log
