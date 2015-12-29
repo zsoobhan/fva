@@ -19,6 +19,7 @@
             {% for object in active_objects %}
                     <div class="list title">
                     <div class="small-hexagon"><span class="icon {{ object.icon }}"></span> </div>
+                    {% include 'partials/flickr_embed.html' with thumbnail=True flickr_album_id=object.flickr_album_id %}
                     <a href="{{ object.get_absolute_url }}"><h2>{{ object.title }}</h2></a>
                     <span class="byline">{% if object.date %}{{ object.date}}{% endif %}</span>
                     <p class="tag">{% for tag in object.tags.all %}<a href="{{ tag.get_absolute_url}}">{{ tag }}</a> {% endfor %}</p>

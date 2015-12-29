@@ -10,7 +10,8 @@ PUBLISHED = 'PUBLISHED'
 DRAFT = 'DRAFT'
 STATUS_CHOICES = [
     (PUBLISHED, 'Published'),
-    (DRAFT, 'Draft')]
+    (DRAFT, 'Draft')
+]
 
 RELATED_NAMES = ['youtube_entries', 'flickr_entries']
 
