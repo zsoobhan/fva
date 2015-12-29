@@ -1173,4 +1173,13 @@ ul.contact li a.icon-rss:before
 .tag-hex.small-hexagon
 {
     top:0px;
+} 
+
+@media only screen and (max-width: 380px) {
+	.list .small-hexagon{
+        display:none;
+	}
+    .list.title {
+        padding: 0;
+    }
 }
