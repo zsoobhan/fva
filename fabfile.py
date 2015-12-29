@@ -125,6 +125,8 @@ def make_folder_structure():
         'mkdir -p data/%(build)s',
         'mkdir -p logs/%(build)s',
         'mkdir -p media/%(build)s',
+        'mkdir -p media/%(build)s/static/',
+        'mkdir -p media/%(build)s/media/',
         'mkdir -p run/%(build)s',
         'chmod -R g+w logs/ media/ run/',
         'chown -R %(webserver_user)s:%(webserver_user)s data/ ',
