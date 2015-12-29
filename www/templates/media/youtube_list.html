@@ -19,6 +19,9 @@
             {% for object in active_objects %}
                     <div class="list title">
                     <div class="small-hexagon"><span class="icon {{ object.icon }}"></span> </div>
+                    <a href="{{ object.get_absolute_url }}">
+                        <img src="http://img.youtube.com/vi/{{ object.youtube_id }}/mqdefault.jpg" height="150" >
+                    </a>
                     <a href="{{ object.get_absolute_url }}"><h2>{{ object.title }}</h2></a>
                     <span class="byline">{% if object.date %}{{ object.date}}{% endif %}</span>
                     <p class="tag">{% for tag in object.tags.all %}<a href="{{ tag.get_absolute_url}}">{{ tag }}</a> {% endfor %}</p>
