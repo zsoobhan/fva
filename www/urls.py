@@ -11,10 +11,10 @@ urlpatterns = patterns(
     # external apps
     (r'^ckeditor/', include('ckeditor_uploader.urls')),
     (r'^s3direct/', include('s3direct.urls')),
-    (r'^admin/', include(admin.site.urls)),
 
     # prometheus urls
-    (r'^media/', include('media.urls', namespace='media')),
+    (r'^admin/', include(admin.site.urls)),
+    (r'^content/', include('media.urls', namespace='media')),
     (r'', include('content.urls')),
 )
 
