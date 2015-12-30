@@ -1,6 +1,8 @@
 FVA
 ===
 
+[![Build Status](https://travis-ci.org/zsoobhan/fva.svg?branch=master)](https://travis-ci.org/zsoobhan/fva)
+
 Artist's website project. 
 Work in progress.
 Rudimentary CMS, ability to add videos and galleries.
