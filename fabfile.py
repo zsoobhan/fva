@@ -153,10 +153,9 @@ def move_confs():
     notify('Copyting Nginx, Supervisor and Logrotate confs to their '
            'respective destinations')
     cmds = [
-        'cp deploy/nginx/%(build)s.conf /etc/nginx/sites-enabled/%(project_code)s%(build)s.conf',  # noqa
+        'cp deploy/nginx/%(build)s.conf /etc/nginx/sites-available/%(project_code)s%(build)s.conf',  # noqa
         'cp deploy/supervisord/%(build)s.conf /etc/supervisor/conf.d/%(project_code)s%(build)s.conf',  # noqa
         'cp deploy/logrotate.d/application /etc/logrotate.d/app.%(project_code)s%(build)s',  # noqa
-
     ]
     with cd(env.code_dir):
         [sudo(cmd % env) for cmd in cmds]
@@ -170,12 +169,11 @@ def touch_reload_wsgi():
 
 def set_permissions():
     notify("Applying permissions")
-    with cd(env.code_dir):
-        sudo('chmod -R 775 public')
-        sudo('chown -R root:%(webserver_user)s public' % env)
 
     with cd(env.project_dir):
-        sudo('chown -R www-data:www-data run/ logs/ builds/ media/')
+        sudo(
+            'chown -R www-data:www-data run/ logs/ builds/ media/ *.basic_auth'
+        )
 
 
 def _activate_virtualenv():
@@ -203,7 +201,9 @@ def manage_new_code():
 def upload_settings():
     notify('Uploading non-version controlled settings %(build)s.py' % env)
     put('www/conf/%(build)s.py' % env, '/tmp/')
+    put('www/deploy/nginx/%(build)s.basic_auth' % env, '/tmp/')
     sudo('mv /tmp/%(build)s.py %(code_dir)s/conf/' % env)
+    sudo('mv /tmp/%(build)s.basic_auth %(project_dir)s/%(build)s.basic_auth' % env),  # noqa
 
 
 def restart_nginx():

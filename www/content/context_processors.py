@@ -2,7 +2,6 @@ from django.conf import settings
 
 CONTEXT_SETTINGS = [
     'GA_TRACKING_CODE',
-    'FACEBOOK_APP_ID',
 ]
 
 
