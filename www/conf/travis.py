@@ -19,6 +19,8 @@ CACHES = {
     }
 }
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
-
+ADMINS = (
+    ('Ziyad Soobhan', 'zsoobhan@gmail.com'),
+)
 SECRET_KEY = 'thisisateststringandisnotusedinproduction'
 GA_TRACKING_CODE = 'XXXXX-XXXX'
