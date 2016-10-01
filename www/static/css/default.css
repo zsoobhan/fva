@@ -1113,6 +1113,9 @@ ul.contact li a.icon-rss:before
 	height: 100%;
 }
 
+.flickrWrapper {
+}
+
 
 /*********************************************************************************/
 /* Lists                                                                        */
@@ -1175,7 +1178,7 @@ ul.contact li a.icon-rss:before
     top:0px;
 } 
 
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 440px) {
 	.list .small-hexagon{
         display:none;
 	}

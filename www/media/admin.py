@@ -35,8 +35,8 @@ class FlickrAlbumAdmin(admin.ModelAdmin):
             }
          ),
         ('Meta', {'fields': ('date', 'meta_description', 'icon', 'tags')},),
-        ('Content', {'fields': ('flickr_album_id', 'title', 'slug',
-                                'subtitle', 'content')},)
+        ('Content', {'fields': ('title', 'flickr_embed_code', 'slug',
+                                'subtitle', 'content')},),
     )
 
 
