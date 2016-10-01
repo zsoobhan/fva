@@ -130,8 +130,8 @@ class YoutubeVideo(AbstractMediaEntry):
 
 
 class FlickrAlbum(AbstractMediaEntry):
-    flickr_album_id = models.CharField(
-        max_length=32, help_text='The ID of the album from flickr.')
+    flickr_embed_code = models.CharField(
+        max_length=1024, help_text='Flickr embed code')
     tags = models.ManyToManyField(Tag, related_name='flickr_entries')
 
     def get_absolute_url(self):
