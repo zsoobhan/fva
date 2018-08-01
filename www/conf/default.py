@@ -29,7 +29,7 @@ ADMIN_MEDIA_PREFIX = '/static/admin/'
 # Email Settings
 SERVER_EMAIL = 'django@farahvisualarts.com'
 DEFAULT_FROM_EMAIL = 'app@farahvisualarts.com'
-COMMUNICATION_EMAIL = 'farahbhoyroo@gmail.com'
+COMMUNICATION_EMAIL = 'farahsoobhan@gmail.com'
 
 # Additional locations of static files
 STATIC_ROOT = location('public/static/')
