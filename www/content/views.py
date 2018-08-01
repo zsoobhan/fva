@@ -11,7 +11,7 @@ class ContactFormView(generic.FormView):
     form_class = forms.ContactForm
     template_name = 'content/contact.html'
     success_url = reverse_lazy('home')
-    success_message = _("Your contact message has been saved and I will be in "
+    success_message = _("Your message has been sent and I will be in "
                         "touch shortly.")
 
     def form_valid(self, form):
