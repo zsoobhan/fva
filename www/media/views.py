@@ -54,6 +54,16 @@ class FlickAlbumDetailView(BaseEntryDetailView):
     template_name = 'media/flickr_detail.html'
 
 
+class PressListView(BaseEntryListView):
+    model = models.PressEntry
+    template_name = 'media/press_list.html'
+
+
+class PressDetailView(BaseEntryDetailView):
+    model = models.PressEntry
+    template_name = 'media/press_detail.html'
+
+
 class TagListView(BaseEntryListView):
     model = models.Tag
     template_name = 'media/tag_list.html'
