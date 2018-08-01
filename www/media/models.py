@@ -13,7 +13,7 @@ STATUS_CHOICES = [
     (DRAFT, 'Draft')
 ]
 
-RELATED_NAMES = ['youtube_entries', 'flickr_entries']
+RELATED_NAMES = ['youtube_entries', 'flickr_entries', 'press_entries']
 
 
 class Tag(models.Model):
@@ -107,6 +107,30 @@ class AbstractMediaEntry(models.Model):
     def get_ga_label(self):
         return '{pre}-{slug}-{id}'.format(
             pre=self.media_prefix(), slug=self.slug[:10], id=self.id)
+
+
+class PressEntry(AbstractMediaEntry):
+
+    external_url = models.CharField(
+        max_length=2000,
+        help_text='The full external url e.g. https://www.google.co.uk',
+        blank=True
+    )
+    tags = models.ManyToManyField(Tag, related_name='press_entries')
+
+    def get_absolute_url(self):
+        return reverse(
+            'media:press-detail-view', kwargs={'slug': self.slug}
+        )
+
+    class Meta:
+        get_latest_by = 'date_published'
+        ordering = ['-date_published']
+        verbose_name = 'Press Entry'
+        verbose_name_plural = 'Press Entries'
+
+    def media_prefix(self):
+        return 'newspaper-o'
 
 
 class YoutubeVideo(AbstractMediaEntry):
