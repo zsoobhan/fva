@@ -190,7 +190,7 @@ ul.style2 li:first-child
 
 ul.style2 .icon
 {
-	color: #FFF;
+	color: #0000001A;
 }
 
 ul.style3
@@ -230,7 +230,7 @@ ul.style3 li:first-child
 
 ul.style3 .icon
 {
-	color: #DB3256;
+	color: #0000001A;
 }
 
 
@@ -241,18 +241,19 @@ ul.style3 .icon
 	.button
 {
 	display: inline-block;
-	padding: 1.3em 3em;
-	background: #FFC000;
+	padding: 0.5em;
+	background: #FFF300;
 	-moz-transition: opacity 0.25s ease-in-out;
 	-webkit-transition: opacity 0.25s ease-in-out;
 	-o-transition: opacity 0.25s ease-in-out;
 	-ms-transition: opacity 0.25s ease-in-out;
 	transition: opacity 0.25s ease-in-out;
-	letter-spacing: 0.20em;
+	letter-spacing: 0.1em;
 	text-decoration: none;
 	text-transform: uppercase;
 	font-weight: 600;
-	color: #FFF;
+	font-size: 1.4em;
+    color: #3d3d3d80;
 }
 
 .button:hover
@@ -304,7 +305,7 @@ ul.style3 .icon
 		overflow: hidden;
 		padding: 2em 0em 0em 0em;
 		text-align: center;
-		background: #FFC000;
+		background: #FFF300;
 	}
 
 	.header h1
@@ -947,6 +948,7 @@ ul.contact li a.icon-rss:before
 .extra2 .icon
 {
 	font-size: 1.5em;
+	color: #0000001A;
 }
 
 .margin-btm
@@ -996,7 +998,7 @@ ul.contact li a.icon-rss:before
 	width: 120px;
 	height: 80px;
 	line-height: 80px;
-	background: #FFC000;
+	background: #FFF300;
 	position: relative;
 	text-align: center;
 	color: #FFF;
@@ -1011,7 +1013,7 @@ ul.contact li a.icon-rss:before
 	height: 0;
 	border-left: 60px solid transparent;
 	border-right: 60px solid transparent;
-	border-bottom: 30px solid #FFC000;
+	border-bottom: 30px solid #FFF300;
 }
 .hexagon:after {
 	content: "";
@@ -1022,7 +1024,7 @@ ul.contact li a.icon-rss:before
 	height: 0;
 	border-left: 60px solid transparent;
 	border-right: 60px solid transparent;
-	border-top: 30px solid #FFC000;
+	border-top: 30px solid #FFF300;
 }
 
 .portfolio
@@ -1139,7 +1141,7 @@ ul.contact li a.icon-rss:before
     width: 60px;
     height: 40px;
     line-height: 40px;
-    background: #FFC000;
+    background: #FFF300;
     position: absolute;
     text-align: center;
     color: #FFF;
@@ -1158,7 +1160,7 @@ ul.contact li a.icon-rss:before
     height: 0;
     border-left: 30px solid transparent;
     border-right: 30px solid transparent;
-    border-bottom: 15px solid #FFC000;
+    border-bottom: 15px solid #FFF300;
 }
 
 .small-hexagon:after {
@@ -1170,7 +1172,7 @@ ul.contact li a.icon-rss:before
     height: 0;
     border-left: 30px solid transparent;
     border-right: 30px solid transparent;
-    border-top: 15px solid #FFC000;
+    border-top: 15px solid #FFF300;
 }
 
 .tag-hex.small-hexagon
@@ -1185,4 +1187,10 @@ ul.contact li a.icon-rss:before
     .list.title {
         padding: 0;
     }
+}
+@media only screen and (max-width: 900px) {
+	.header img
+	{
+        width: 50%;
+	}
 }

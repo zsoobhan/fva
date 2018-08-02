@@ -23,6 +23,7 @@
                     <a href="{{ object.get_absolute_url }}"><h2>{{ object.title }}</h2></a>
                     <span class="byline">{% if object.date %}{{ object.date}}{% endif %}</span>
                     <div class="blog-content">{{ object.content|safe }}</div>
+                    <p><a href="{{ object.get_absolute_url }}">read more...</a> </p>
                 </div>
             {% endfor %}
             {% if page_obj.has_next or page_obj.has_previous %}

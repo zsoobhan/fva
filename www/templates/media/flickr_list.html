@@ -12,7 +12,7 @@
 
         <div class="small-spacer"></div>
         <div class="hexagon">
-            <i class="icon fa-flickr"></i>
+            <i class="icon fa-camera"></i>
         </div>
 
         {% if active_objects %}
@@ -24,7 +24,7 @@
                     <span class="byline">{% if object.date %}{{ object.date}}{% endif %}</span>
                     <p class="tag">{% for tag in object.tags.all %}<a href="{{ tag.get_absolute_url}}">{{ tag }}</a> {% endfor %}</p>
                     <p>{{ object.subtitle }} </p>
-                    <p><a href="{{ object.get_absolute_url }}">more...</a> </p>
+                    <p><a href="{{ object.get_absolute_url }}">see more...</a> </p>
 
                 </div>
             {% endfor %}
