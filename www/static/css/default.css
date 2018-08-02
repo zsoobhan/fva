@@ -1186,3 +1186,9 @@ ul.contact li a.icon-rss:before
         padding: 0;
     }
 }
+@media only screen and (max-width: 900px) {
+	.header img
+	{
+        width: 50%;
+	}
+}
