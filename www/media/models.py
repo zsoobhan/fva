@@ -154,9 +154,16 @@ class YoutubeVideo(AbstractMediaEntry):
 
 
 class FlickrAlbum(AbstractMediaEntry):
-    flickr_embed_code = models.CharField(
-        max_length=1024, help_text='Flickr embed code')
     tags = models.ManyToManyField(Tag, related_name='flickr_entries')
+    flickr_album_url = models.CharField(
+        max_length=1024,
+        help_text='Flickr album url'
+    )
+    flickr_thumbnail_url = models.CharField(
+        max_length=1024,
+        help_text='looks like https://farm2.staticflickr.com'
+                  '/1907/43656216960_4a56163a49_m.jpg'
+    )
 
     def get_absolute_url(self):
         return reverse('media:flickr-detail-view', kwargs={'slug': self.slug})

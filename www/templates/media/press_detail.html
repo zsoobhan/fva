@@ -22,7 +22,7 @@
             <div class="title">
                 <span class="byline">{{ object.subtitle }} <a href="{{ object.external_url}}">source</a></span>
                 <div class="date">{% if object.date %}{{ object.date}}{% endif %}</div>
-                <div class="tag">{% for tag in object.tags.all %}<a href="{{ tag.get_absolute_url}}">{{ tag }}</a> {% endfor %}</div>
+                <div class="tag">{% for tag in object.tags.all %}<a href="{{ tag.get_absolute_url}}">#{{ tag }}</a> {% endfor %}</div>
             </div>
             <div class="blog-content">{{ object.content|safe }}</div>
         </div>

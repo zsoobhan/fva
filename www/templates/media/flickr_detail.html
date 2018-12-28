@@ -20,11 +20,12 @@
             </div>
 
             {% include 'partials/flickr_embed.html' with object=object %}
+            <div class="tiny-spacer"></div>
 
             <div class="title">
                 <span class="byline">{{ object.subtitle }}</span>
                 <div class="date">{% if object.date %}{{ object.date}}{% endif %}</div>
-                <div class="tag">{% for tag in object.tags.all %}<a href="{{ tag.get_absolute_url}}">{{ tag }}</a>{% endfor %}</div>
+                <div class="tag">{% for tag in object.tags.all %}<a href="{{ tag.get_absolute_url}}">#{{ tag }}</a> {% endfor %}</div>
             </div>
             <div class="blog-content">{{ object.content|safe }}</div>
         </div>
