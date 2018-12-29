@@ -11,4 +11,6 @@ def notify(sender, instance, created, *args, **kwargs):
     send_mail(subject='New Communication',
               message=body,
               from_email=settings.DEFAULT_FROM_EMAIL,
-              recipient_list=[settings.COMMUNICATION_EMAIL])
+              recipient_list=[settings.COMMUNICATION_EMAIL],
+              fail_silently=False,
+              )
