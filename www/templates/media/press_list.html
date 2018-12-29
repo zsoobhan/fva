@@ -23,17 +23,11 @@
                     <h2>{{ object.title }}</h2>
                     <span class="byline">
                         {% if object.date %}{{ object.date}}{% endif %}
-                        <span class="out">
-                            &nbsp&nbsp&nbsp
-                            <a href="{{ object.get_absolute_url }}"><small>permalink</a> <i class="icon fa-link"></i></small>
-                        </span>
                     </span>
                     <div class="blog-content">{{ object.content|safe }}</div>
-                    {% if object.external_url %}
                     <span class="out">
-                        <p><a target="_blank" data-target="press-out" href="{{ object.external_url }}">read more</a>&nbsp<i class="icon fa-external-link"></i></p>
+                       <a href="{{ object.get_absolute_url }}">permalink</a> <i class="icon fa-link"></i> &nbsp&nbsp{% if object.external_url %} <a target="_blank" data-target="press-out" href="{{ object.external_url }}">read more</a> <i class="icon fa-external-link"></i></p> {% endif %}
                     </span>
-                    {% endif %}
                 </div>
             {% endfor %}
             {% if page_obj.has_next or page_obj.has_previous %}
