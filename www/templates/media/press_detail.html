@@ -20,12 +20,15 @@
             </div>
 
             <div class="title">
-                <span class="byline">{{ object.subtitle }} <a href="{{ object.external_url}}">source</a></span>
+                <span class="byline">{{ object.subtitle }}</span>
                 <div class="date">{% if object.date %}{{ object.date}}{% endif %}</div>
                 <div class="tag">{% for tag in object.tags.all %}<a href="{{ tag.get_absolute_url}}">#{{ tag }}</a> {% endfor %}</div>
             </div>
             <div class="blog-content">{{ object.content|safe }}</div>
         </div>
+        <span class="out">
+        <p><a target="_blank" data-target="press-out" href="{{ object.external_url }}">read more</a>&nbsp<i class="icon fa-external-link"></i></p>
+        </span>
         <a id="fb-share-link-js" data-target="{{ object.get_ga_label }}" href="#"><i class="fa fa-facebook-square"></i></a>
         <div class="small-spacer"></div>
         <div class="hexagon"><span class="icon {{ object.icon }}"></span> </div>

@@ -957,6 +957,12 @@ ul.contact li a.icon-rss:before
     color: #0000001A;
 }
 
+.out .icon
+{
+    font-size: 0.75em;
+    color: #2C383B;
+}
+
 .margin-btm
 {
     overflow: hidden;

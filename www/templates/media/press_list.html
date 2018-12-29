@@ -21,10 +21,18 @@
                     <div class="list title">
                     <div class="small-hexagon"><span class="icon {{ object.icon }}"></span> </div>
                     <h2>{{ object.title }}</h2>
-                    <span class="byline">{% if object.date %}{{ object.date}}{% endif %}</span>
+                    <span class="byline">
+                        {% if object.date %}{{ object.date}}{% endif %}
+                        <span class="out">
+                            &nbsp&nbsp&nbsp
+                            <a href="{{ object.get_absolute_url }}"><small>permalink</a> <i class="icon fa-link"></i></small>
+                        </span>
+                    </span>
                     <div class="blog-content">{{ object.content|safe }}</div>
                     {% if object.external_url %}
-                    <p><a target="_blank" data-target="press-out" href="{{ object.external_url }}">read more...</a> </p>
+                    <span class="out">
+                        <p><a target="_blank" data-target="press-out" href="{{ object.external_url }}">read more</a>&nbsp<i class="icon fa-external-link"></i></p>
+                    </span>
                     {% endif %}
                 </div>
             {% endfor %}
