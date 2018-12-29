@@ -55,6 +55,7 @@ class FlickAlbumDetailView(BaseEntryDetailView):
 
 
 class PressListView(BaseEntryListView):
+    paginate_by = 25
     model = models.PressEntry
     template_name = 'media/press_list.html'
 

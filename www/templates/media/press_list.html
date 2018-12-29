@@ -20,10 +20,16 @@
             {% for object in active_objects %}
                     <div class="list title">
                     <div class="small-hexagon"><span class="icon {{ object.icon }}"></span> </div>
-                    <a href="{{ object.get_absolute_url }}"><h2>{{ object.title }}</h2></a>
+                    {% if object.external_url %}
+                    <a target="_blank" data-target="press-out" href="{{ object.external_url }}"><h2>{{ object.title }}</h2></a>
+                    {% else %}
+                    <h2>{{ object.title }}</h2>
+                    {% endif %}
                     <span class="byline">{% if object.date %}{{ object.date}}{% endif %}</span>
                     <div class="blog-content">{{ object.content|safe }}</div>
-                    <p><a href="{{ object.get_absolute_url }}">read more...</a> </p>
+                    {% if object.external_url %}
+                    <p><a target="_blank" data-target="press-out" href="{{ object.external_url }}">read more...</a> </p>
+                    {% endif %}
                 </div>
             {% endfor %}
             {% if page_obj.has_next or page_obj.has_previous %}
