@@ -10,17 +10,14 @@
 <div class="featured-wrapper">
     <div class="extra2">
         <div class="small-spacer"></div>
-        <div class="hexagon"><span class="icon fa-align-left"></span> </div>
+        <div class="hexagon"><span class="icon fa-tags"></span> </div>
 
         {% if active_objects %}
+            <div class="ebox blog">
             {% for object in active_objects %}
-                <div class="ebox blog">
-                    <div class="title">
-                        <a href="{{ object.get_absolute_url }}"><h2>{{ object.title }}</h2></a>
-                    </div>
-                </div>
-                <div class="small-spacer"></div>
+                <a href="{{ object.get_absolute_url }}"><h3>#{{ object.title }}</h3></a>
             {% endfor %}
+            </div>
 
             {% if page_obj.has_next or page_obj.has_previous %}
                 <div class="pagination">
