@@ -6,7 +6,7 @@ from . import models
 class YoutubeAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     search_fields = ['slug', 'title', 'date_created', 'date_published']
-    list_filter = ['status']
+    list_filter = ['status', 'tags']
     list_display = ['slug', 'status', 'date', 'date_published', 'is_active']
     readonly_fields = ['date_created']
     fieldsets = (
@@ -25,7 +25,7 @@ class YoutubeAdmin(admin.ModelAdmin):
 class FlickrAlbumAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     search_fields = ['slug', 'title', 'date_created', 'date_published']
-    list_filter = ['status']
+    list_filter = ['status', 'tags']
     list_display = ['slug', 'status', 'date', 'date_published', 'is_active']
     readonly_fields = ['date_created']
     fieldsets = (
@@ -45,7 +45,7 @@ class FlickrAlbumAdmin(admin.ModelAdmin):
 class PressAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     search_fields = ['slug', 'title', 'date_created', 'date_published']
-    list_filter = ['status']
+    list_filter = ['status', 'tags']
     list_display = ['slug', 'status', 'date', 'date_published', 'is_active']
     readonly_fields = ['date_created']
     fieldsets = (
