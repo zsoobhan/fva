@@ -22,7 +22,9 @@ class UploadAdmin(admin.ModelAdmin):
 
 @admin.register(LogEntry)
 class LogEntryAdmin(admin.ModelAdmin):
-    list_display = ['action_time', 'user', 'content_type', 'change_message']
+    list_display = [
+        'action_time', 'user', 'object_repr', 'content_type', 'change_message'
+    ]
     list_filter = ['user']
     readonly_fields = [
         'content_type',
