@@ -23,7 +23,8 @@ class UploadAdmin(admin.ModelAdmin):
 @admin.register(LogEntry)
 class LogEntryAdmin(admin.ModelAdmin):
     list_display = [
-        'action_time', 'user', 'object_repr', 'content_type', 'change_message'
+        'action_time', 'user', 'show_object_admin_page', 'content_type',
+        'change_message',
     ]
     list_filter = ['user']
     readonly_fields = [
@@ -38,6 +39,12 @@ class LogEntryAdmin(admin.ModelAdmin):
 
     def has_delete_permission(self, request, obj=None):
         return False
+
+    def show_object_admin_page(self, obj):
+        return '<a href="{url}">{label}</a>'.format(
+            url=obj.get_admin_url(), label=obj.object_repr
+        )
+    show_object_admin_page.allow_tags = True
 
     def get_actions(self, request):
         actions = super(LogEntryAdmin, self).get_actions(request)
