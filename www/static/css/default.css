@@ -313,6 +313,7 @@ ul.style3 .icon
         text-align: center;
         background: #F8D148;
         background-size: cover;
+        background-position: top;
         background-image: url('/static/images/background.jpg');
     }
 
