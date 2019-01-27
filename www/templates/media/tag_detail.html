@@ -31,7 +31,7 @@
             <div class="list title">
                 <div class="tag-hex small-hexagon"><span class="icon {{ content.default_icon }}"></span> </div>
                 <h1><a href="{{ content.get_absolute_url }}">{{ content.title }}</a></h1>
-                <div class="date">{{ content.date}}</div>
+                <div class="date">{% if content.date %}{{ content.date}}{% endif %}</div>
             </div>
 
         {% endfor %}
