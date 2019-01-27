@@ -312,6 +312,8 @@ ul.style3 .icon
         padding: 2em 0em 0em 0em;
         text-align: center;
         background: #FFF300;
+        background-size: cover;
+        background-image: url('/static/images/background.jpg');
     }
 
     .header h1
