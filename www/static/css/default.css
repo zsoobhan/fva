@@ -248,7 +248,7 @@ ul.style3 .icon
 {
     display: inline-block;
     padding: 0.5em;
-    background: #FFF300;
+    background: #F8D148;
     -moz-transition: opacity 0.25s ease-in-out;
     -webkit-transition: opacity 0.25s ease-in-out;
     -o-transition: opacity 0.25s ease-in-out;
@@ -311,7 +311,7 @@ ul.style3 .icon
         overflow: hidden;
         padding: 2em 0em 0em 0em;
         text-align: center;
-        background: #FFF300;
+        background: #F8D148;
         background-size: cover;
         background-image: url('/static/images/background.jpg');
     }
@@ -1012,7 +1012,7 @@ ul.contact li a.icon-rss:before
     width: 120px;
     height: 80px;
     line-height: 80px;
-    background: #FFF300;
+    background: #F8D148;
     position: relative;
     text-align: center;
     color: #FFF;
@@ -1027,7 +1027,7 @@ ul.contact li a.icon-rss:before
     height: 0;
     border-left: 60px solid transparent;
     border-right: 60px solid transparent;
-    border-bottom: 30px solid #FFF300;
+    border-bottom: 30px solid #F8D148;
 }
 .hexagon:after {
     content: "";
@@ -1038,7 +1038,7 @@ ul.contact li a.icon-rss:before
     height: 0;
     border-left: 60px solid transparent;
     border-right: 60px solid transparent;
-    border-top: 30px solid #FFF300;
+    border-top: 30px solid #F8D148;
 }
 
 .portfolio
@@ -1155,7 +1155,7 @@ ul.contact li a.icon-rss:before
     width: 60px;
     height: 40px;
     line-height: 40px;
-    background: #FFF300;
+    background: #F8D148;
     position: absolute;
     text-align: center;
     color: #FFF;
@@ -1174,7 +1174,7 @@ ul.contact li a.icon-rss:before
     height: 0;
     border-left: 30px solid transparent;
     border-right: 30px solid transparent;
-    border-bottom: 15px solid #FFF300;
+    border-bottom: 15px solid #F8D148;
 }
 
 .small-hexagon:after {
@@ -1186,7 +1186,7 @@ ul.contact li a.icon-rss:before
     height: 0;
     border-left: 30px solid transparent;
     border-right: 30px solid transparent;
-    border-top: 15px solid #FFF300;
+    border-top: 15px solid #F8D148;
 }
 
 .tag-hex.small-hexagon
