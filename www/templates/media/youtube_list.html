@@ -27,7 +27,7 @@
                     <span class="byline">{% if object.date %}{{ object.date}}{% endif %}</span>
                     <p class="tag">{% for tag in object.tags.all %}<a href="{{ tag.get_absolute_url}}">#{{ tag }}</a> {% endfor %}</p>
                     <p>{{ object.subtitle }}</p>
-                    <p><a href="{{ object.get_absolute_url }}">read more...</a> </p>
+                    <p><a href="{{ object.get_absolute_url }}">view video and find out more</a> </p>
                 </div>
             {% endfor %}
             {% if page_obj.has_next or page_obj.has_previous %}
